@@ -33,6 +33,31 @@ public abstract class DerivedValue implements FSDerivedValue {
 
     private short _cssSacUnitType;
 
+    // JBH/hop
+    private CSSPrimitiveValue cssPrimitiveValue;    
+    public CSSPrimitiveValue getCSSPrimitiveValue() {
+        return cssPrimitiveValue;
+    }
+
+    protected DerivedValue(
+            CSSName name,
+            CSSPrimitiveValue cssPrimitiveValue,
+            short cssSACUnitType,
+            String cssText,
+            String cssStringValue) {
+        
+        this.cssPrimitiveValue = cssPrimitiveValue;
+        
+        this._cssSacUnitType = cssSACUnitType;
+
+        if ( cssText == null ) {
+            throw new XRRuntimeException(
+                    "CSSValue for '" + name + "' is null after " +
+                    "resolving CSS identifier for value '" + cssStringValue + "'");
+        }
+        this._asString = deriveStringValue(cssText, cssStringValue);
+    }
+        
     protected DerivedValue() {}
 
     protected DerivedValue(

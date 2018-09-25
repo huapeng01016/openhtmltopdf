@@ -22,6 +22,8 @@ package com.openhtmltopdf.css.constants;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.w3c.dom.css.CSSPrimitiveValue;
+
 import com.openhtmltopdf.css.parser.FSColor;
 import com.openhtmltopdf.css.style.CssContext;
 import com.openhtmltopdf.css.style.FSDerivedValue;
@@ -55,6 +57,17 @@ import com.openhtmltopdf.util.XRRuntimeException;
 public class IdentValue implements FSDerivedValue {
     private static int maxAssigned = 0;
 
+    // JBH/hop
+    private CSSPrimitiveValue cssPrimitiveValue;    
+    public void setCSSPrimitiveValue(CSSPrimitiveValue cssPrimitiveValue) {
+        this.cssPrimitiveValue = cssPrimitiveValue;
+    }
+
+    public CSSPrimitiveValue getCSSPrimitiveValue() {
+        return cssPrimitiveValue;
+    }
+    
+    
     /**
      * Description of the Field
      */

@@ -479,7 +479,7 @@ public class SharedContext {
     }
 
     public CalculatedStyle getStyle(Element e) {
-        return getStyle(e, false);
+        return getStyle(e, true);  // JBH temp change from false
     }
 
     public CalculatedStyle getStyle(Element e, boolean restyle) {
